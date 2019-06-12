@@ -1,21 +1,23 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="Thermostat.js"></script>
+<script src="thermostat-controller.js"></script>
 </head>
 
-<button>Increase temperature </button>
-<button>Decrease temperature</button>
+<button class="increase">Increase temperature </button>
+<button class="decrease">Decrease temperature</button>
 
 <div>
   Powersave
 <label class="switch">
   <input type="checkbox"></input>
-  <span class="slider round"></span>
+  <span class="slider round" ></span>
 </label>
 </div>
 
 <button>Reset temperature</button>
 
-<p class="temp-display">
+<p id="temp-display">
 </p>
 
-<script src="Thermostat.js"></script>
