@@ -21,10 +21,28 @@ describe("Thermostat", function() {
   });
 
   it("should have a minimum temperature of 10 degrees", function() {
+    thermostat = new Thermostat();
     for(i = 0; i < 10; i++ ) {
       thermostat.downTemperature();
     }
     expect(function() {thermostat.downTemperature();}).toThrow(new Error("Think of the chafing")) 
   }); 
+
+  it("should have max temperature of 25 degrees when power saving mode is on", function() {
+    thermostat = new Thermostat();
+    for(i = 0; i < 5; i++) {
+      thermostat.upTemperature();
+    }
+    expect(function() {thermostat.upTemperature();}).toThrow(new Error("Think of the polar bears"))
+  });
+
+  it("should have max temperature of 32 degrees when power saving mode is off", function() {
+    thermostat = new Thermostat();
+    thermostat.switchPowerSaving();
+    for(i = 0; i < 12; i++) {
+      thermostat.upTemperature();
+    }
+    expect(function() {thermostat.upTemperature();}).toThrow(new Error("Think of the orphans"))
+  });
 
 });

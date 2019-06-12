@@ -1,5 +1,6 @@
 function Thermostat() {
   this._temperature = 20;
+  this._powerSaving = true;
 };
 
 Thermostat.prototype.temperature = function() {
@@ -7,7 +8,20 @@ Thermostat.prototype.temperature = function() {
 };
 
 Thermostat.prototype.upTemperature = function() {
-  return this._temperature += 1;
+  if(this._powerSaving) {
+    if(this._temperature >= 25) {
+      throw new Error("Think of the polar bears")
+    } else {
+      this._temperature += 1;
+    };
+  } else {
+    if (this._temperature >= 32) {
+      throw new Error("Think of the orphans")
+    } else {
+      this._temperature += 1;
+    };
+  };
+
 };
 
 Thermostat.prototype.downTemperature = function() {
@@ -15,4 +29,8 @@ Thermostat.prototype.downTemperature = function() {
     throw new Error("Think of the chafing");
   } else {
   this._temperature -= 1;};
+};
+
+Thermostat.prototype.switchPowerSaving= function() {
+  this._powerSaving = !this._powerSaving;
 };
