@@ -11,5 +11,8 @@ Thermostat.prototype.upTemperature = function() {
 };
 
 Thermostat.prototype.downTemperature = function() {
-  return this._temperature -= 1;
+  if (this._temperature <= 10){
+    throw new Error("Think of the chafing");
+  } else {
+  this._temperature -= 1;};
 };
