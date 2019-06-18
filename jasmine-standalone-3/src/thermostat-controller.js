@@ -13,7 +13,12 @@ $(document).ready(function(){
     $('#temp-display').text(thermostat.temperature());
   });
 
-  $(".toggle").on('click', function() {
+  $(".reset").on("click", function() {
+    thermostat.resetTemperature();
+    $('#temp-display').text(thermostat.temperature());
+  });
+
+  $(".colorful-switch__checkbox").on('click', function() {
     thermostat.switchPowerSaving();
   })
 
